@@ -7,20 +7,7 @@ namespace mlp.interviews.boxing.problem.Implementation.Utility
 {
     public class FileFormatConverter : IFileFormatConverter
     {
-        private readonly INetPositionCalculator _netPositionCalculator;
-
-        public FileFormatConverter(INetPositionCalculator netPositionCalculator)
-        {
-            _netPositionCalculator = netPositionCalculator;
-        }
-
-        public string[] Converter(List<TestRecord> testResords)
-        {
-            var netPositions = _netPositionCalculator.Calculate(testResords);
-            return Convert(netPositions);
-        }
-
-        private static string [] Convert(List<OutputRecord> netPositions)
+        public string [] Convert(List<OutputRecord> netPositions)
         {
             var header = new[] {"TRADER,SYMBOL,QUANTITY"};
             var records = netPositions.Select(Record).ToArray();

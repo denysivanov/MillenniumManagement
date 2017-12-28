@@ -17,8 +17,8 @@ namespace mlp.interviews.boxing.problem.Implementation.BoxedPosition
 
         public void WriteData(List<TestRecord> testResords, string fileName)
         {
-            var lines = _boxedPositionFileFormatConverter.Calculate(testResords);
-            _fileWriter.Write(fileName, lines);
+            //var lines = _boxedPositionFileFormatConverter.Calculate(testResords);
+            //_fileWriter.Write(fileName, lines);
         }
     }
 }

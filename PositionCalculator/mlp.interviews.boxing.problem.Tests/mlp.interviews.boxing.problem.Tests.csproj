@@ -56,7 +56,7 @@
     <Compile Include="BoxedPositionDetectorTest.cs" />
     <Compile Include="BoxedPositionOutputTest.cs" />
     <Compile Include="NetPositionCalculatorTest.cs" />
-    <Compile Include="NetPositionFileFormatConverterTest.cs" />
+    <Compile Include="FileFormatConverterTest.cs" />
     <Compile Include="RecordConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>
