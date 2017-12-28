@@ -12,21 +12,21 @@ namespace SoftwareTest
 
         public int[] FindMax(int[] numbers, int n)
         {
-            var sortedNumbers = Sort(numbers);
+            var sortedNumbers = numbers.OrderByDescending( x => x).ToArray();
 
             if (sortedNumbers.Length <= n)
                 return sortedNumbers;
+            
+            var returnValue = GetPartOfArray(sortedNumbers, n);
 
-            var startOfMaxSequence = sortedNumbers.Length - n;
-
-            return GetPartOfArray(sortedNumbers, startOfMaxSequence);
+            return returnValue;
         }
 
-        public int[] GetPartOfArray(int[] numbers, int startingSequence)
+        public int[] GetPartOfArray(int[] numbers, int endSequence)
         {
             var returnValue = new List<int>();
 
-            for (var i = startingSequence; i < numbers.Length - 1; i++)
+            for (var i = 0; i < endSequence; i++)
             {
                 returnValue.Add(numbers[i]);
             }
