@@ -8,7 +8,7 @@ namespace SoftwareTest.Internal
     {
         public byte[] Encode(byte[] original)
         {
-            if (original.Length == 0)
+            if (original == null || original.Length == 0)
                 return new byte[0];
             
             var outPut = new List<byte>{ 0, original[0] };
