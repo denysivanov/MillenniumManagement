@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using SoftwareTest.Internal;
 
@@ -7,8 +8,23 @@ namespace SoftwareTest.Test
     [TestFixture]
     public class NumberCalculatorTest
     {
-        private readonly int[] _numbers = {5, 7, 5, 3, 6, 7, 9};
+        //{5, 7, 5, 3, 6, 7, 9};
+        private readonly int[] _numbers = RandomNumber();
         private readonly NumberCalculator _numberCalculator = new NumberCalculator();
+
+        private static int[] RandomNumber()
+        {
+            var randNum = new Random();
+
+            var arraySize = randNum.Next(0, 100);
+
+            var maxValueOfElement = randNum.Next(0, 1000);
+
+            return Enumerable
+                .Repeat(0, arraySize)
+                .Select(i => randNum.Next(0, maxValueOfElement))
+                .ToArray();
+        }
 
         [Test]
         public void FindMaxNumberTest()
@@ -19,14 +35,6 @@ namespace SoftwareTest.Test
             {
                 Assert.GreaterOrEqual(max, number);
             }
-        }
-
-        [Test]
-        public void FindMaxNumberCheckByNumberTest()
-        {
-            var max = _numberCalculator.FindMax(_numbers);
-
-            Assert.GreaterOrEqual(9, max);
         }
 
         [Test]
@@ -47,7 +55,7 @@ namespace SoftwareTest.Test
         {
             var sorted = _numberCalculator.Sort(_numbers);
 
-            Assert.AreEqual(3, sorted.First());
+            Assert.AreEqual(_numbers.Min(), sorted.First());
         }
 
         [Test]
@@ -55,21 +63,29 @@ namespace SoftwareTest.Test
         {
             var sorted = _numberCalculator.Sort(_numbers);
 
-            Assert.AreEqual(9, sorted.Last());
+            Assert.AreEqual(_numbers.Max(), sorted.Last());
         }
 
         [Test]
         public void SortNumberByHighestNumber_firstElement_Test()
         {
-            var maxes = _numberCalculator.FindMax(_numbers, 2);
-            Assert.AreEqual(9, maxes[0]);
+            
+            for (var i = 1; i < _numbers.Length; i++)
+            {
+                var maxes = _numberCalculator.FindMax(_numbers, i);
+                Assert.AreEqual(_numbers.Max(), maxes[0]);
+            }
         }
 
         [Test]
         public void SortNumberByHighestNumber_lastElement_Test()
         {
-            var maxes = _numberCalculator.FindMax(_numbers, 2);
-            Assert.AreEqual(7, maxes[1]);
+
+            for (var i = 1; i < _numbers.Length; i++)
+            {
+                var maxes = _numberCalculator.FindMax(_numbers, i);
+                Assert.LessOrEqual(maxes[maxes.Length - 1], maxes[0]);
+            }
         }
 
         [Test]
@@ -83,17 +99,38 @@ namespace SoftwareTest.Test
         }
 
         [Test]
-        public void SortNumberByHighestNumber_sortingOrder_Test()
+        public void SortNumberByHighestNumber_allValuesInSourceLessThenMax_Test()
         {
             for (int i = 1; i < _numbers.Length; i++)
             {
-                var maxNumber = int.MaxValue;
                 var maxes = _numberCalculator.FindMax(_numbers, i);
+                var maxNumber = maxes.Max();
+                Assert.IsFalse(_numbers.Any(x => x > maxNumber));
+            }
+        }
 
-                for (int j = 0; j < maxes.Length - 1; j++)
-                {
-                    Assert.GreaterOrEqual(maxNumber, maxes[j]);
-                }
+        [Test]
+        public void SortNumberByHighestNumber_minValuesInSourceEqualOrLessThenMin_Test()
+        {
+            for (int i = 1; i < _numbers.Length; i++)
+            {
+                var maxes = _numberCalculator.FindMax(_numbers, i);
+                Assert.LessOrEqual(_numbers.Min(), maxes.Min());
+            }
+        }
+
+        [Test]
+        public void SortNumberByHighestNumber_MinResultHaveSomeValuesInSourceBefore_Test()
+        {
+            if (_numbers.Length < 2)
+                return;
+
+            for (int i = 1; i < _numbers.Length - 2; i++)
+            {
+                var maxes = _numberCalculator.FindMax(_numbers, i);
+                var min = maxes.Min();
+                var count = _numbers.Count(x => x <= min);
+                Assert.Greater(count, 1);
             }
         }
     }
