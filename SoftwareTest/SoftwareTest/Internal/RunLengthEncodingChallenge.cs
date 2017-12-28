@@ -10,26 +10,20 @@ namespace SoftwareTest.Internal
         {
             if (original.Length == 0)
                 return new byte[0];
-
-            byte byteCount = 0;
             
-            var outPut = new List<byte>{ byteCount, original[0] };
+            var outPut = new List<byte>{ 0, original[0] };
             
             foreach (var b in original)
             {
-                var currentByte = outPut[outPut.Count - 1];
 
-                if (currentByte == b)
+                if (b == outPut[outPut.Count - 1])
                 {
-                    byteCount++;
-                    outPut[outPut.Count - 2] = byteCount;
+                    outPut[outPut.Count - 2]++;
                     continue;
                 }
 
-                byteCount = 1;
-                outPut.AddRange(new byte [] { byteCount, b });
+                outPut.AddRange(new byte [] { 1, b });
             }
-           
 
             return outPut.ToArray();
         }
