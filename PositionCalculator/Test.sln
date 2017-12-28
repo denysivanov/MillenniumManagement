@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mlp.interviews.boxing.problem", "mlp.interviews.boxing.problem\mlp.interviews.boxing.problem.csproj", "{2F1750AA-4979-43A2-ACE6-8566C9E76B56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mlp.interviews.boxing.problem.Interface", "mlp.interviews.boxing.problem.Interface\mlp.interviews.boxing.problem.Interface.csproj", "{0D608E28-CCFA-4DAA-AB0B-D54F891FA55E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mlp.interviews.boxing.problem.Initializer", "mlp.interviews.boxing.problem.Initializer\mlp.interviews.boxing.problem.Initializer.csproj", "{2D45EE17-E788-43E4-9263-ACE52B5EE925}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mlp.interviews.boxing.problem.Implementation", "mlp.interviews.boxing.problem.Implementation\mlp.interviews.boxing.problem.Implementation.csproj", "{9AAF697A-C46F-4F73-ABC7-4B56A4727F57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mlp.interviews.boxing.problem.Tests", "mlp.interviews.boxing.problem.Tests\mlp.interviews.boxing.problem.Tests.csproj", "{7BD4249C-FE51-4F8C-B7F9-8BEED728C98C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F1750AA-4979-43A2-ACE6-8566C9E76B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F1750AA-4979-43A2-ACE6-8566C9E76B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F1750AA-4979-43A2-ACE6-8566C9E76B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F1750AA-4979-43A2-ACE6-8566C9E76B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D608E28-CCFA-4DAA-AB0B-D54F891FA55E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D608E28-CCFA-4DAA-AB0B-D54F891FA55E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D608E28-CCFA-4DAA-AB0B-D54F891FA55E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D608E28-CCFA-4DAA-AB0B-D54F891FA55E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D45EE17-E788-43E4-9263-ACE52B5EE925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D45EE17-E788-43E4-9263-ACE52B5EE925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D45EE17-E788-43E4-9263-ACE52B5EE925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D45EE17-E788-43E4-9263-ACE52B5EE925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AAF697A-C46F-4F73-ABC7-4B56A4727F57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AAF697A-C46F-4F73-ABC7-4B56A4727F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AAF697A-C46F-4F73-ABC7-4B56A4727F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AAF697A-C46F-4F73-ABC7-4B56A4727F57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD4249C-FE51-4F8C-B7F9-8BEED728C98C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD4249C-FE51-4F8C-B7F9-8BEED728C98C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD4249C-FE51-4F8C-B7F9-8BEED728C98C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD4249C-FE51-4F8C-B7F9-8BEED728C98C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE7A7DD5-B1C9-43F5-8024-1A3B1AAC15B8}
+	EndGlobalSection
+EndGlobal
