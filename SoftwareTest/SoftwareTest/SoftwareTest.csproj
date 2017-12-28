@@ -36,10 +36,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IChallenge.cs" />
-    <Compile Include="NumberCalculator.cs" />
+    <Compile Include="Internal\IChallenge.cs" />
+    <Compile Include="Internal\NumberCalculator.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="RunLengthEncodingChallenge.cs" />
+    <Compile Include="Internal\RunLengthEncodingChallenge.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

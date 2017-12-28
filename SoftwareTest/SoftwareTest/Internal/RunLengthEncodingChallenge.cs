@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace SoftwareTest
+namespace SoftwareTest.Internal
 {
     public class RunLengthEncodingChallenge : IChallenge
     {

@@ -1,4 +1,4 @@
-﻿namespace SoftwareTest
+﻿namespace SoftwareTest.Internal
 {
     public interface IChallenge
     {
