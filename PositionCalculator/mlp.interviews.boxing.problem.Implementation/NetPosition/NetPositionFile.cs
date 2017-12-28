@@ -6,19 +6,19 @@ namespace mlp.interviews.boxing.problem.Implementation.NetPosition
 {
     public class NetPositionFile : INetPositionFile
     {
-        private readonly INetPositionConverter _netPositionConvert;
+        private readonly IFileFormatConverter _fileFormatConvert;
         private readonly IFileWriter _fileWriter;
 
-        public NetPositionFile(INetPositionConverter netPositionConvert, IFileWriter fileWriter)
+        public NetPositionFile(IFileFormatConverter fileFormatConvert, IFileWriter fileWriter)
         {
-            _netPositionConvert = netPositionConvert;
+            _fileFormatConvert = fileFormatConvert;
             _fileWriter = fileWriter;
         }
 
-        public void WriteData(List<TestRecord> testResords, string filename)
+        public void WriteData(List<TestRecord> testResords, string fileName)
         {
-            var lines = _netPositionConvert.Converter(testResords);
-            _fileWriter.Write(filename, lines);
+            var lines = _fileFormatConvert.Converter(testResords);
+            _fileWriter.Write(fileName, lines);
         }
     }
 }

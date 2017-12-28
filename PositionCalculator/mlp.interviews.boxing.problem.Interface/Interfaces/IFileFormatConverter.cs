@@ -3,8 +3,8 @@ using mlp.interviews.boxing.problem.Interface.Entity;
 
 namespace mlp.interviews.boxing.problem.Interface.Interfaces
 {
-    public interface INetPositionFile
+    public interface IFileFormatConverter
     {
-        void WriteData(List<TestRecord> testResords, string fileName);
+        string[] Converter(List<TestRecord> testResords);
     }
 }

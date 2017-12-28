@@ -53,8 +53,10 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoxedPositionDetectorTest.cs" />
+    <Compile Include="BoxedPositionOutputTest.cs" />
     <Compile Include="NetPositionCalculatorTest.cs" />
-    <Compile Include="NetPositionConverterTest.cs" />
+    <Compile Include="NetPositionFileFormatConverterTest.cs" />
     <Compile Include="RecordConverterTest.cs" />
   </ItemGroup>
   <ItemGroup>

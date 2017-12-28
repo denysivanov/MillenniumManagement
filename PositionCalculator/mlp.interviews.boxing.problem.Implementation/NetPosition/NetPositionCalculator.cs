@@ -7,9 +7,16 @@ namespace mlp.interviews.boxing.problem.Implementation.NetPosition
 {
     public class NetPositionCalculator : INetPositionCalculator
     {
-        public List<Interface.Entity.NetPosition> Calculate(List<TestRecord> testResords)
+        private readonly IOutputRecordConverter _outputRecordConverter;
+
+        public NetPositionCalculator(IOutputRecordConverter outputRecordConverter)
         {
-            var returnResults = new List<Interface.Entity.NetPosition>();
+            _outputRecordConverter = outputRecordConverter;
+        }
+
+        public List<OutputRecord> Calculate(List<TestRecord> testResords)
+        {
+            var returnResults = new List<Interface.Entity.OutputRecord>();
 
             foreach (var trader in TraderDistinct(testResords))
             {
@@ -22,16 +29,10 @@ namespace mlp.interviews.boxing.problem.Implementation.NetPosition
             return returnResults;
         }
 
-        private static Interface.Entity.NetPosition NetPosition(List<TestRecord> testResords, string trader, string symbol)
+        private  OutputRecord NetPosition(List<TestRecord> testResords, string trader, string symbol)
         {
             var quantity = Quantity(testResords, trader, symbol);
-            var netPosition = new Interface.Entity.NetPosition
-            {
-                Trader = trader,
-                Symbol = symbol,
-                Quantity = quantity
-            };
-            return netPosition;
+            return _outputRecordConverter.Convert(trader, symbol, quantity);
         }
 
         private static int Quantity(List<TestRecord> testResords, string trader, string symbol)

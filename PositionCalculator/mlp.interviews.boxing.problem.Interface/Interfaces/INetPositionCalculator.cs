@@ -5,6 +5,6 @@ namespace mlp.interviews.boxing.problem.Interface.Interfaces
 {
     public interface INetPositionCalculator
     {
-        List<Entity.NetPosition> Calculate(List<TestRecord> testResords);
+        List<Entity.OutputRecord> Calculate(List<TestRecord> testResords);
     }
 }

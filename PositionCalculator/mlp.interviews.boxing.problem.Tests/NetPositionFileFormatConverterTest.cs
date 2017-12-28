@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using mlp.interviews.boxing.problem.Implementation.NetPosition;
+using mlp.interviews.boxing.problem.Implementation.Utility;
 using mlp.interviews.boxing.problem.Interface.Entity;
 using mlp.interviews.boxing.problem.Interface.Interfaces;
 using Moq;
@@ -9,29 +9,29 @@ using NUnit.Framework;
 namespace mlp.interviews.boxing.problem.Tests
 {
     [TestFixture]
-    public class NetPositionConverterTest
+    public class NetPositionFileFormatConverterTest
     {
-        private readonly List<NetPosition> _netPositions = new List<NetPosition>
+        private readonly List<OutputRecord> _netPositions = new List<OutputRecord>
         {
-            new NetPosition{Trader = "T1",Symbol = "S1", Quantity = 1},
-            new NetPosition{Trader = "T2",Symbol = "S2", Quantity = 2},
-            new NetPosition{Trader = "T3",Symbol = "S3", Quantity = 3}
+            new OutputRecord{Trader = "T1",Symbol = "S1", Quantity = 1},
+            new OutputRecord{Trader = "T2",Symbol = "S2", Quantity = 2},
+            new OutputRecord{Trader = "T3",Symbol = "S3", Quantity = 3}
         };
 
-        private INetPositionConverter _netPositionConverter;
+        private IFileFormatConverter _fileFormatConverter;
 
         [SetUp]
         public void Setup()
         {
             var netPositionCalculatorMock = new Mock<INetPositionCalculator>();
             netPositionCalculatorMock.Setup(x => x.Calculate(It.IsAny<List<TestRecord>>())).Returns(_netPositions);
-            _netPositionConverter = new NetPositionConverter(netPositionCalculatorMock.Object);
+            _fileFormatConverter = new FileFormatConverter(netPositionCalculatorMock.Object);
         }
 
         private string[] TestConverter()
         {
             //it doens't matter what we pass in here, results from calculator are mocked 
-            return _netPositionConverter.Converter(null); 
+            return _fileFormatConverter.Converter(null); 
         }
 
         [Test]

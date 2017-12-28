@@ -9,7 +9,7 @@ namespace mlp.interviews.boxing.problem.Implementation.Utility
         public void Write(string fileName, string[] lines)
         {
             Console.WriteLine($"Output fileName ==>>> {Directory.GetCurrentDirectory()}\\{fileName}");
-            System.IO.File.WriteAllLines(fileName, lines);
+            File.WriteAllLines(fileName, lines);
         }
     }
 }

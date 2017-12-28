@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using mlp.interviews.boxing.problem.Implementation.NetPosition;
+using mlp.interviews.boxing.problem.Implementation.Utility;
 using mlp.interviews.boxing.problem.Interface.Entity;
 using NUnit.Framework;
 
@@ -19,9 +20,9 @@ namespace mlp.interviews.boxing.problem.Tests
             new TestRecord{Trader = "Debby", Broker = "BC", Symbol = "NVDA.N", Quantity = 500, Price = 20}
         };
 
-        private List<NetPosition> GetResults()
+        private List<OutputRecord> GetResults()
         {
-            var calculator = new NetPositionCalculator();
+            var calculator = new NetPositionCalculator(new OutputRecordConverter());
             return calculator.Calculate(_testRecords);
         }
 
@@ -39,11 +40,11 @@ namespace mlp.interviews.boxing.problem.Tests
         }
 
 
-        private readonly List<NetPosition> _resultRecords = new List<NetPosition>
+        private readonly List<OutputRecord> _resultRecords = new List<OutputRecord>
         {
-            new NetPosition{Trader = "Joe",Symbol = "IBM.N", Quantity = 80},
-            new NetPosition{Trader = "Mike",Symbol = "AAPL.N", Quantity = 300},
-            new NetPosition{Trader = "Debby",Symbol = "NVDA.N", Quantity = 500},
+            new OutputRecord{Trader = "Joe",Symbol = "IBM.N", Quantity = 80},
+            new OutputRecord{Trader = "Mike",Symbol = "AAPL.N", Quantity = 300},
+            new OutputRecord{Trader = "Debby",Symbol = "NVDA.N", Quantity = 500},
         };
        
 

@@ -3,13 +3,13 @@ using System.Linq;
 using mlp.interviews.boxing.problem.Interface.Entity;
 using mlp.interviews.boxing.problem.Interface.Interfaces;
 
-namespace mlp.interviews.boxing.problem.Implementation.NetPosition
+namespace mlp.interviews.boxing.problem.Implementation.Utility
 {
-    public class NetPositionConverter : INetPositionConverter
+    public class FileFormatConverter : IFileFormatConverter
     {
         private readonly INetPositionCalculator _netPositionCalculator;
 
-        public NetPositionConverter(INetPositionCalculator netPositionCalculator)
+        public FileFormatConverter(INetPositionCalculator netPositionCalculator)
         {
             _netPositionCalculator = netPositionCalculator;
         }
@@ -20,16 +20,16 @@ namespace mlp.interviews.boxing.problem.Implementation.NetPosition
             return Convert(netPositions);
         }
 
-        private static string [] Convert(List<Interface.Entity.NetPosition> netPositions)
+        private static string [] Convert(List<OutputRecord> netPositions)
         {
-            var header = new string [] {"TRADER,SYMBOL,QUANTITY"};
+            var header = new[] {"TRADER,SYMBOL,QUANTITY"};
             var records = netPositions.Select(Record).ToArray();
             return header.Concat(records).ToArray();
         }
 
-        private static string Record(Interface.Entity.NetPosition x)
+        private static string Record(Interface.Entity.OutputRecord record)
         {
-            return $"{x.Trader},{x.Symbol},{x.Quantity}";
+            return $"{record.Trader},{record.Symbol},{record.Quantity}";
         }
     }
 }
