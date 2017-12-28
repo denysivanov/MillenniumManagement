@@ -7,21 +7,18 @@ namespace mlp.interviews.boxing.problem.Implementation.NetPosition
     public class NetPositionFile : INetPositionFile
     {
         private readonly INetPositionCalculator _netPositionCalculator;
-        private readonly IFileFormatConverter _fileFormatConvert;
-        private readonly IFileWriter _fileWriter;
+        private readonly IDataWriter _dataWriter;
 
-        public NetPositionFile(IFileFormatConverter fileFormatConvert, IFileWriter fileWriter, INetPositionCalculator netPositionCalculator)
+        public NetPositionFile(INetPositionCalculator netPositionCalculator, IDataWriter dataWriter)
         {
-            _fileFormatConvert = fileFormatConvert;
-            _fileWriter = fileWriter;
             _netPositionCalculator = netPositionCalculator;
+            _dataWriter = dataWriter;
         }
 
         public void WriteData(List<TestRecord> testResords, string fileName)
         {
             var netPositions = _netPositionCalculator.Calculate(testResords);
-            var lines = _fileFormatConvert.Convert(netPositions);
-            _fileWriter.Write(fileName, lines);
+            _dataWriter.Write(fileName, netPositions);
         }
     }
 }

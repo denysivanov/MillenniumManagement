@@ -37,13 +37,13 @@
     <Compile Include="Entity\OutputRecord.cs" />
     <Compile Include="Entity\TestRecord.cs" />
     <Compile Include="Interfaces\IBoxedPositionCalculator.cs" />
+    <Compile Include="Interfaces\IDataWriter.cs" />
     <Compile Include="Interfaces\IOutputRecordConverter.cs" />
     <Compile Include="Interfaces\IBoxedPositionDetector.cs" />
     <Compile Include="Interfaces\IBoxedPositionFile.cs" />
     <Compile Include="Interfaces\IBoxedPositionOutput.cs" />
     <Compile Include="Interfaces\IExecutor.cs" />
-    <Compile Include="Interfaces\IFileReader.cs" />
-    <Compile Include="Interfaces\IFileWriter.cs" />
+    <Compile Include="Interfaces\IFileOperations.cs" />
     <Compile Include="Interfaces\INetPositionCalculator.cs" />
     <Compile Include="Interfaces\IFileFormatConverter.cs" />
     <Compile Include="Interfaces\INetPositionFile.cs" />

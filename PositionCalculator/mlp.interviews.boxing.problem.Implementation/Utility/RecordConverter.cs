@@ -6,16 +6,16 @@ namespace mlp.interviews.boxing.problem.Implementation.Utility
 {
     public class RecordConverter : IRecordConverter
     {
-        private readonly IFileReader _fileReader;
+        private readonly IFileOperations _fileOperations;
 
-        public RecordConverter(IFileReader fileReader)
+        public RecordConverter(IFileOperations fileOperations)
         {
-            _fileReader = fileReader;
+            _fileOperations = fileOperations;
         }
 
         public List<TestRecord> GetRecords(string fileName)
         {
-            var fileData = _fileReader.GetData(fileName);
+            var fileData = _fileOperations.GetData(fileName);
             return Convert(fileData);
         }
 

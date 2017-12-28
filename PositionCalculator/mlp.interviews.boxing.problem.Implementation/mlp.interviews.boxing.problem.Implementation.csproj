@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoxedPosition\BoxedPositionCalculator.cs" />
+    <Compile Include="Utility\DataWriter.cs" />
     <Compile Include="Utility\OutputRecordConverter.cs" />
     <Compile Include="BoxedPosition\BoxedPositionDetector.cs" />
     <Compile Include="BoxedPosition\BoxedPositionFile.cs" />
@@ -43,8 +44,7 @@
     <Compile Include="NetPosition\NetPositionCalculator.cs" />
     <Compile Include="Utility\FileFormatConverter.cs" />
     <Compile Include="NetPosition\NetPositionFile.cs" />
-    <Compile Include="Utility\FileReader.cs" />
-    <Compile Include="Utility\FileWriter.cs" />
+    <Compile Include="Utility\FileOperations.cs" />
     <Compile Include="Utility\RecordConverter.cs" />
   </ItemGroup>
   <ItemGroup>

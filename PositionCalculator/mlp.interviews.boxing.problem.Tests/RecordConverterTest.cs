@@ -21,9 +21,9 @@ namespace mlp.interviews.boxing.problem.Tests
         [SetUp]
         public void Setup()
         {
-            var fileReaderMock = new Mock<IFileReader>();
-            fileReaderMock.Setup(x => x.GetData(It.IsAny<string>())).Returns(_records);
-            _recordConverter = new RecordConverter(fileReaderMock.Object);
+            var fileOperationsMock = new Mock<IFileOperations>();
+            fileOperationsMock.Setup(x => x.GetData(It.IsAny<string>())).Returns(_records);
+            _recordConverter = new RecordConverter(fileOperationsMock.Object);
         }
 
         public TestRecord[] Results()
