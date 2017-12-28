@@ -5,6 +5,6 @@ namespace mlp.interviews.boxing.problem.Interface.Interfaces
 {
     public interface IFileFormatConverter
     {
-        string[] Convert(List<OutputRecord> netPositions);
+        string[] Convert(List<OutputRecord> outputRecords);
     }
 }

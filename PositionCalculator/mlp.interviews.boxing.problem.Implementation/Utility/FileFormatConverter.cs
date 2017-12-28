@@ -7,14 +7,14 @@ namespace mlp.interviews.boxing.problem.Implementation.Utility
 {
     public class FileFormatConverter : IFileFormatConverter
     {
-        public string [] Convert(List<OutputRecord> netPositions)
+        public string [] Convert(List<OutputRecord> outputRecords)
         {
             var header = new[] {"TRADER,SYMBOL,QUANTITY"};
-            var records = netPositions.Select(Record).ToArray();
+            var records = outputRecords.Select(Record).ToArray();
             return header.Concat(records).ToArray();
         }
 
-        private static string Record(Interface.Entity.OutputRecord record)
+        private static string Record(OutputRecord record)
         {
             return $"{record.Trader},{record.Symbol},{record.Quantity}";
         }
