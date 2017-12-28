@@ -6,6 +6,10 @@ new_htmls
 *.user
 *.userosscache
 *.sln.docstates
+db.lock
+storage.ide
+storage.ide-shm
+storage.ide-wal
 
 # Build results
 [Dd]ebug/
