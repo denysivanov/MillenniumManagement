@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NumberCalculatorTest.cs" />
+    <Compile Include="RunLengthEncodingChallengeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoftwareTest\SoftwareTest.csproj">

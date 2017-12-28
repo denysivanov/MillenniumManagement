@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SoftwareTest.Internal
@@ -7,9 +8,33 @@ namespace SoftwareTest.Internal
     {
         public byte[] Encode(byte[] original)
         {
-            // TODO: Write your encoder here
+            var currentByte = original[0];
+            byte byteCount = 0;
+            var outPut = new List<byte>();
 
-            return new byte[0];
+            for (var i = 0; i < original.Length; i++)
+            {
+                var b = original[i];
+
+                if (currentByte == b)
+                    byteCount++;
+                else
+                {
+                    outPut.Add(byteCount);
+                    outPut.Add(currentByte);
+
+                    byteCount = 1;
+                    currentByte = b;
+                }
+
+                if (i > 0 && i == original.Length - 1)
+                {
+                    outPut.Add(byteCount);
+                    outPut.Add(currentByte);
+                }
+            }
+
+            return outPut.ToArray();
         }
 
         public bool Winner()
