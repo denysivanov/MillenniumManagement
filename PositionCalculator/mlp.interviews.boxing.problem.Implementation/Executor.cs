@@ -1,5 +1,4 @@
-﻿using System;
-using mlp.interviews.boxing.problem.Interface.Interfaces;
+﻿using mlp.interviews.boxing.problem.Interface.Interfaces;
 
 namespace mlp.interviews.boxing.problem.Implementation
 {
