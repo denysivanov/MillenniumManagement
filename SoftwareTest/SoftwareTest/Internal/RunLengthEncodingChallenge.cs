@@ -20,8 +20,7 @@ namespace SoftwareTest.Internal
                     byteCount++;
                 else
                 {
-                    outPut.Add(byteCount);
-                    outPut.Add(currentByte);
+                    outPut.AddRange(new[] { byteCount, currentByte });
 
                     byteCount = 1;
                     currentByte = b;
@@ -29,8 +28,7 @@ namespace SoftwareTest.Internal
 
                 if (i > 0 && i == original.Length - 1)
                 {
-                    outPut.Add(byteCount);
-                    outPut.Add(currentByte);
+                    outPut.AddRange(new[] { byteCount, currentByte });
                 }
             }
 
