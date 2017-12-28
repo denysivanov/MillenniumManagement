@@ -15,8 +15,7 @@ namespace SoftwareTest.Internal
             
             foreach (var b in original)
             {
-
-                if (b == outPut[outPut.Count - 1])
+                if (IsUpdateCount(b, outPut))
                 {
                     outPut[outPut.Count - 2]++;
                     continue;
@@ -28,11 +27,20 @@ namespace SoftwareTest.Internal
             return outPut.ToArray();
         }
 
+        private static bool IsUpdateCount(byte b, List<byte> outPut)
+        {
+            if (b != outPut[outPut.Count - 1])
+                return false;
+
+            if (outPut[outPut.Count - 2] == 255)
+                return false;
+
+            return true;
+        }
+
         public bool Winner()
         {
-            // TODO: Are the following test cases sufficient, to prove your code works
-            // as expected? If not either write more test cases and/or describe what
-            // other tests cases would be needed.
+            //See test project
 
             var testCases = new[]
             {
@@ -42,7 +50,10 @@ namespace SoftwareTest.Internal
             };
 
             // TODO: What limitations does your algorithm have (if any)?
+            // Denys Ivanov:  When I am getting count > byte size (> 255) I have to start new sequence
+            
             // TODO: What do you think about the efficiency of this algorithm for encoding data?
+            // Denys Ivanov: When we are getting unique numbers or small array produced array have bigger size
 
             foreach (var testCase in testCases)
             {
