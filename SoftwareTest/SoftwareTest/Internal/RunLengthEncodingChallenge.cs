@@ -8,29 +8,28 @@ namespace SoftwareTest.Internal
     {
         public byte[] Encode(byte[] original)
         {
-            var currentByte = original[0];
-            byte byteCount = 0;
-            var outPut = new List<byte>();
+            if (original.Length == 0)
+                return new byte[0];
 
-            for (var i = 0; i < original.Length; i++)
+            byte byteCount = 0;
+            
+            var outPut = new List<byte>{ byteCount, original[0] };
+            
+            foreach (var b in original)
             {
-                var b = original[i];
+                var currentByte = outPut[outPut.Count - 1];
 
                 if (currentByte == b)
+                {
                     byteCount++;
-                else
-                {
-                    outPut.AddRange(new[] { byteCount, currentByte });
-
-                    byteCount = 1;
-                    currentByte = b;
+                    outPut[outPut.Count - 2] = byteCount;
+                    continue;
                 }
 
-                if (i > 0 && i == original.Length - 1)
-                {
-                    outPut.AddRange(new[] { byteCount, currentByte });
-                }
+                byteCount = 1;
+                outPut.AddRange(new byte [] { byteCount, b });
             }
+           
 
             return outPut.ToArray();
         }
